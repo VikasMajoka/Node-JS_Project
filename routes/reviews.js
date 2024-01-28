@@ -26,3 +26,6 @@ router.delete('/:id', (req, res, next)=> {
     res.send('DELETE /posts/:id/reviews/:review_id');
   });
 
+
+  module.exports=router;
+  
