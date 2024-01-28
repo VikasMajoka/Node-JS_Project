@@ -9,8 +9,8 @@ const UserSchema = newSchema({
     {
         type:Schema.Types.objectId,
         ref: 'Post'
-
-  }] 
+    }
+  ] 
 });
 
 UserSchema.plugin(passportLocalMongoose);
