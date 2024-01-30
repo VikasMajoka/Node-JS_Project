@@ -23,6 +23,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: 'hang ten dude!',
+  resave: false,
+  saveUninitialized: true,
+  }))
+
+  passport.use(User.createStrategy());
+
+  passport.serializeUser(User.serializeUser());
+  passport.desearializeUser(User.desearializeUser());
+
 app.use('/', indexRouter);
 app.use('/posts', postsRouter);
 app.use('/posts/:id/reviews', reviewsRouter);
