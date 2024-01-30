@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
 const user = require('./models/user');
+const session = require('express-session');
 
 //require routes
 const indexRouter = require('./routes/index');
@@ -29,12 +30,7 @@ app.use(session({
   saveUninitialized: true,
   }))
 
-  passport.use(User.createStrategy());
-
-  passport.serializeUser(User.serializeUser());
-  passport.desearializeUser(User.desearializeUser());
-
-app.use('/', indexRouter);
+  app.use('/', indexRouter);
 app.use('/posts', postsRouter);
 app.use('/posts/:id/reviews', reviewsRouter);
 

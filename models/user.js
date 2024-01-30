@@ -1,13 +1,13 @@
-const mongoose = requie('mongoose');
+const mongoose = require('mongoose');
 const passportLocalMongoose =require('passport-local-mongoose');
 const Schema = mongoose.Schema ;
 
-const UserSchema = newSchema({
-  email:string,
-  image:string,
+const UserSchema = new Schema({
+  email:String,
+  image:String,
   posts:[
     {
-        type:Schema.Types.objectId,
+        type:Schema.Types.ObjectId,
         ref: 'Post'
     }
   ] 

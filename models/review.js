@@ -1,7 +1,7 @@
-const mongoose = requie('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema ;
 
-const ReviewSchema = newSchema({
+const ReviewSchema = new Schema({
   body:String,
 
   author: {
