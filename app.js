@@ -6,6 +6,7 @@ const logger = require('morgan');
 const passport = require('passport');
 const user = require('./models/user');
 const session = require('express-session');
+const mongoose = require('mongoose');
 
 //require routes
 const indexRouter = require('./routes/index');
@@ -13,6 +14,9 @@ const postsRouter = require('./routes/posts');
 const reviewsRouter = require('./routes/reviews');
 
 const app = express();
+
+//connect to the database
+mongoose.connect('mongodb://localhost:27017/surf-shop');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
