@@ -13,12 +13,12 @@ const PostSchema = new Schema({
     type:Schema.Types.ObjectId,
     ref:'User'
   },
-  reviews:[
+  reviews:
     {
-        type:Schema.Types.objectId,
+        type:[Schema.Types.objectId],
         ref: 'Review'
     }
-  ] 
+  
 });
 
 module.exports = mongoose.model('Post', PostSchema);
