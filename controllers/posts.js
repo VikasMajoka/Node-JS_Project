@@ -12,7 +12,7 @@ module.exports = {
  },
  //Posts create
  async postCreate (req ,res ,next){
-   let post = await Post.create(req.body);
+   let post = await Post.create(req.body.post);
    res.redirect(`/posts/${post.id}`);
  },
 //Posts Show
@@ -24,6 +24,11 @@ async postShow (req ,res ,next){
 async postEdit (req ,res ,next){
   let post = await Post.findById(req.params.id); 
   res.render('posts/edit',{ post });
-}
+},
+//Posts update
+async postUpdate (req ,res ,next){
+  let post = await Post.findByIdUpdate(req.params.id , req.body.post); 
+  res.redirect(`/posts/${post.id}`);
+},
 
 }
