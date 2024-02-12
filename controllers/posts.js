@@ -30,10 +30,10 @@ async postUpdate (req ,res ,next){
   let post = await Post.findByIdUpdate(req.params.id , req.body.post); 
   res.redirect(`/posts/${post.id}`);
 },
-//Posts destro
+//Posts destroy
 async postDestroy (req ,res ,next){
   await Post.findByIdAndRemove(req.params.id); 
-  res.render('/posts');
+  res.redirect('/posts');
 },
 
 }
